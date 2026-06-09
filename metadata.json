@@ -1,0 +1,6 @@
+{
+  "name": "FTC Lobster Cup International",
+  "description": "The official website for the FTC Lobster Cup International robotics tournament, featuring venue logistics, schedules, real-time rosters, and dynamic countdowns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

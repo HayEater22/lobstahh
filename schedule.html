@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournament Agenda | FTC Lobster Cup 2026</title>
+  <!-- Google Fonts: Montserrat, Space Grotesk, Inter, and JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'Inter', 'sans-serif'],
+            display: ['Montserrat', 'Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            allianceRed: '#ef4444',
+            allianceRedDark: '#b91c1c',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    /* Subtle dot grid and atmospheric red glow */
+    .tech-bg {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(239, 68, 68, 0.05) 0%, transparent 50%),
+        radial-gradient(rgba(39, 39, 42, 0.3) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-black text-zinc-400 font-sans antialiased min-h-screen flex flex-col tech-bg select-none">
+
+
+
+  <!-- Sticky Header Navigation Bar Component -->
+  <header id="main-header" class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center">
+        <a id="brand-logo" href="/" class="flex items-center gap-3 font-extrabold text-zinc-100 tracking-wider text-base hover:text-red-500 transition-all uppercase">
+          <img src="/assets/lobster_logo.png" alt="Lobster Cup Logo" class="w-8 h-8 object-contain">
+          <span>LOBSTER CUP INTERNATIONAL</span>
+         </a>
+      </div>
+      <nav id="nav-menu" class="hidden md:flex items-center space-x-8 font-display text-xs font-semibold tracking-widest">
+        <a id="link-event" href="/event" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase">EVENT INFO</a>
+        <a id="link-volunteer" href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase flex items-center gap-1">VOLUNTEER <span class="text-[10px]">↗</span></a>
+        <a id="btn-register" href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-sm flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+          REGISTER <span class="text-[10px]">↗</span>
+        </a>
+
+        <!-- More Button Link (Opens Side Drawer) -->
+        <button id="btn-more-side" class="text-zinc-550 hover:text-zinc-100 transition-colors uppercase flex items-center gap-1 font-display text-xs font-semibold tracking-widest bg-transparent border-0 outline-none cursor-pointer">
+          <span>MORE</span>
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </nav>
+      <!-- Mobile Nav Toggle button -->
+      <button id="mobile-menu-toggle" class="md:hidden flex items-center text-zinc-400 hover:text-zinc-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-black px-4 pt-2 pb-4 space-y-3 font-display">
+      <a href="/event" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">EVENT INFO</a>
+      <a href="/schedule" class="block text-zinc-100 py-2 border-b border-zinc-900 text-xs font-bold tracking-widest uppercase">SCHEDULE</a>
+      <a href="/judging" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">JUDGING</a>
+      <a href="/past-seasons" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">PAST SEASONS</a>
+      <a href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">VOLUNTEER ↗</a>
+      <a href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="block text-center py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold tracking-widest uppercase rounded">
+        REGISTER ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Side Drawer Navigation Panel -->
+  <div id="side-drawer" class="fixed inset-0 z-50 invisible pointer-events-none">
+    <!-- Backdrop, transition fade -->
+    <div id="side-drawer-backdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 ease-in-out cursor-pointer"></div>
+    
+    <!-- Panel, transition-transform slide out right -->
+    <div id="side-drawer-panel" class="absolute top-0 right-0 h-full w-80 max-w-full bg-zinc-950/98 border-l border-zinc-900 shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto backdrop-blur-md p-8">
+      
+      <!-- Top Actions / Header -->
+      <div class="space-y-8">
+        <div class="flex items-center justify-between border-b border-zinc-900 pb-5">
+          <div class="flex items-center gap-2.5 font-extrabold text-zinc-100 tracking-wider text-xs uppercase">
+            <img src="/assets/lobster_logo.png" alt="Lobster Cup Logo" class="w-6 h-6 object-contain">
+            <span>MORE</span>
+          </div>
+          <!-- Close button -->
+          <button id="side-drawer-close" class="text-zinc-500 hover:text-zinc-100 transition-colors focus:outline-none" aria-label="Close Sidebar Menu">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links inside Side Menu -->
+        <nav class="flex flex-col space-y-5 font-display text-xs font-bold tracking-widest">
+          <a href="/schedule" id="side-link-schedule" class="group flex items-center justify-between text-zinc-100 border-l-2 border-red-500 pl-3 py-2 uppercase transition-all">
+            <span>Schedule</span>
+            <span class="text-[10px] text-red-500">ACTIVE</span>
+          </a>
+          <a href="/judging" id="side-link-judging" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Judging</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/past-seasons" id="side-link-past-seasons" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Past Seasons Archive</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/event" id="side-link-event" class="group flex items-center justify-between text-zinc-500 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors sm:hidden">
+            <span>Event Info</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="group flex items-center justify-between text-zinc-500 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors sm:hidden">
+            <span>Volunteer ↗</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Footer / Meta Block inside Side Menu -->
+      <div class="space-y-5 border-t border-zinc-900 pt-6">
+        <a id="side-btn-register" href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="w-full text-center block bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold tracking-widest uppercase py-3 rounded-sm transition-all shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+          REGISTER FOR TOURNAMENT ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Schedule Page Layout -->
+  <main id="schedule-container" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full relative z-10">
+    
+    <!-- Hero Header section -->
+    <div class="border-b border-zinc-800 pb-6 mb-12">
+      <h1 class="text-4xl md:text-5xl font-black text-zinc-50 tracking-tighter leading-none mb-2 select-none uppercase">
+        <span class="text-red-600 font-mono text-2xl">LCI.02 //</span> TOURNAMENT AGENDA
+      </h1>
+      <p class="text-xs font-bold text-zinc-500 uppercase tracking-widest font-mono">Comprehensive Competitive Timeline & Pit Layouts</p>
+    </div>
+
+    <!-- Interactive Agenda Tabs Controls -->
+    <div class="flex items-center space-x-4 mb-8 bg-zinc-900/50 p-1.5 rounded-sm border border-zinc-800 w-fit select-none">
+      <button id="btn-tab-day1" class="px-5 py-2.5 rounded-sm text-xs font-mono font-bold tracking-widest transition-all bg-red-600 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+        DAY 1: SETUP & SCRIMMAGE
+      </button>
+      <button id="btn-tab-day2" class="px-5 py-2.5 rounded-sm text-xs font-mono font-bold tracking-widest transition-all text-zinc-500 hover:text-zinc-100">
+        DAY 2: COMPETITION HERO
+      </button>
+    </div>
+
+    <!-- Day 1 Schedule Grid (Active Initially) -->
+    <div id="schedule-grid-day1" class="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-xl mb-12 backdrop-blur-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-zinc-800 bg-zinc-900/80 font-mono text-xs uppercase tracking-widest text-zinc-500">
+              <th class="py-4 px-6 font-semibold">Time</th>
+              <th class="py-4 px-6 font-semibold">Session / Event Activity</th>
+              <th class="py-4 px-6 font-semibold">Location</th>
+              <th class="py-4 px-6 font-semibold text-right">Status / Indicator</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-850 font-sans text-sm text-zinc-400">
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">08:00 AM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Pits Open & Team Registration</span>
+                <span class="text-xs text-zinc-500 font-light">Unload robots, pit division layouts initialization</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Fiesta Hall Pits</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900 border border-zinc-800 text-zinc-500 font-bold tracking-widest uppercase">COMPLETED</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">09:15 AM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Robot Controls & Machine Inspection</span>
+                <span class="text-xs text-zinc-500 font-light">Sizing, hardware inspection, field telemetry connection tests</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Technical Stations</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900 border border-zinc-800 text-zinc-500 font-bold tracking-widest uppercase">COMPLETED</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">11:00 AM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Driver's Briefing & Rules Q&A</span>
+                <span class="text-xs text-zinc-500 font-light">Vital brief on referees, field alignment, safety flags</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Main Stage Arena</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900 border border-zinc-800 text-zinc-500 font-bold tracking-widest uppercase">COMPLETED</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">01:00 PM - 05:00 PM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Official Scratch Matches & Practice Fields</span>
+                <span class="text-xs text-zinc-500 font-light">Staged scrimmages on actual match elements</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Fields A, B & C</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900 border border-zinc-800 text-zinc-500 font-bold tracking-widest uppercase">COMPLETED</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">06:00 PM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Pits Close for Day 1</span>
+                <span class="text-xs text-zinc-500 font-light">Power mains disconnected, security rounds</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Fiesta Hall Pits</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900 border border-zinc-800 text-zinc-500 font-bold tracking-widest uppercase">COMPLETED</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Day 2 Schedule Grid (Hidden Initially) -->
+    <div id="schedule-grid-day2" class="hidden bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-xl mb-12 backdrop-blur-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-zinc-800 bg-zinc-900/80 font-mono text-xs uppercase tracking-widest text-zinc-500">
+              <th class="py-4 px-6 font-semibold">Time</th>
+              <th class="py-4 px-6 font-semibold">Session / Event Activity</th>
+              <th class="py-4 px-6 font-semibold">Location</th>
+              <th class="py-4 px-6 font-semibold text-right">Status / Indicator</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-850 font-sans text-sm text-zinc-400">
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">07:30 AM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Pits Re-Open & Late Inspection</span>
+                <span class="text-xs text-zinc-500 font-light">Morning team calibrations and quick safety checks</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Fiesta Hall Pits</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-red-900/20 border border-red-900/45 text-red-500 font-bold tracking-widest uppercase">UPCOMING</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">10:00 AM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Qualification Matches Launch</span>
+                <span class="text-xs text-zinc-500 font-light">Alliances match setups on Arena A & Arena B with real-time stream active</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Competition Arenas</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900/50 border border-zinc-850 text-zinc-650 font-bold tracking-widest uppercase">PENDING</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">02:30 PM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Alliance Selection Ceremony</span>
+                <span class="text-xs text-zinc-500 font-light">Top seeded dynamic pools picking regional partners for finals</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Main Stage Arena</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900/50 border border-zinc-850 text-zinc-650 font-bold tracking-widest uppercase">PENDING</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-900/40 transition-colors">
+              <td class="py-4 px-6 font-mono font-bold text-red-500 tracking-wider">03:30 PM - 05:30 PM</td>
+              <td class="py-4 px-6">
+                <span class="font-display font-bold text-zinc-150 block">Elimination Finals / Award Ceremony</span>
+                <span class="text-xs text-zinc-500 font-light">Double elimination playoff rounds to declare the 2026 Champion</span>
+              </td>
+              <td class="py-4 px-6 font-mono text-xs">Field Central</td>
+              <td class="py-4 px-6 text-right">
+                <span class="inline-flex px-2 py-0.5 rounded-sm text-[10px] font-mono leading-normal bg-zinc-900/50 border border-zinc-850 text-zinc-650 font-bold tracking-widest uppercase">PENDING</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section: Field Map Placeholder section -->
+    <section id="map-section" class="bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-lg backdrop-blur-sm shadow-xl space-y-6">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-xl font-display font-bold text-zinc-100 uppercase tracking-tight">Top-Down Pit & Competitive Field Arrangement</h2>
+        <p class="text-xs text-zinc-500 font-mono mt-1 uppercase font-semibold">LCI Arena Division Schematics</p>
+      </div>
+
+      <!-- Styled Top-Down Map Placeholder -->
+      <div id="pit-map-placeholder" class="border-2 border-dashed border-zinc-800 bg-zinc-950/60 rounded-lg py-16 px-6 flex flex-col items-center justify-center text-center transition-all hover:border-zinc-700/80">
+        <svg class="w-12 h-12 text-zinc-650 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        <span class="font-mono text-xs text-zinc-400 tracking-wider font-semibold uppercase">[INSERT TOP-DOWN PIT AND FIELD MAP HERE]</span>
+        <p class="text-xs text-zinc-500 font-sans max-w-xl mt-3 font-light leading-relaxed">
+          Provides locations for Pit Numbers 1-48, Practice Fields north of the central entrance, Arena A (Red Field), Arena B (Blue Field), and the primary Telemetry Broadcast stage.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4 items-center justify-center">
+          <span class="inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-mono bg-zinc-900 border border-zinc-850 text-zinc-500 uppercase font-bold">Total Pit Slots: 48</span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-mono bg-zinc-900 border border-zinc-850 text-zinc-500 uppercase font-bold">Competition Fields: 2</span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-mono bg-zinc-900 border border-zinc-850 text-zinc-500 uppercase font-bold">Technical Brief Zones: 1</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Footer -->
+  <footer id="main-footer" class="border-t border-zinc-900 bg-zinc-950/40 py-8 text-center text-xs text-zinc-500 font-mono mt-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2026 FTC Lobster Cup International. This event is an unofficial community off-season event hosted in alliance with local FIRST Tech Challenge coordinators.</p>
+    </div>
+  </footer>
+
+  <!-- Tabs Switcher JS -->
+  <script>
+    const btnDay1 = document.getElementById('btn-tab-day1');
+    const btnDay2 = document.getElementById('btn-tab-day2');
+    const gridDay1 = document.getElementById('schedule-grid-day1');
+    const gridDay2 = document.getElementById('schedule-grid-day2');
+
+    // Navigation Dropdown Mobile Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Side Drawer JavaScript Controller
+    const sideDrawer = document.getElementById('side-drawer');
+    const sideDrawerBackdrop = document.getElementById('side-drawer-backdrop');
+    const sideDrawerPanel = document.getElementById('side-drawer-panel');
+    const btnMoreSide = document.getElementById('btn-more-side');
+    const sideDrawerClose = document.getElementById('side-drawer-close');
+
+    function openSideDrawer() {
+      sideDrawer.classList.remove('invisible', 'pointer-events-none');
+      sideDrawerBackdrop.classList.remove('opacity-0');
+      document.body.classList.add('overflow-hidden');
+      setTimeout(() => {
+        sideDrawerPanel.classList.remove('translate-x-full');
+      }, 10);
+    }
+
+    function closeSideDrawer() {
+      sideDrawerPanel.classList.add('translate-x-full');
+      sideDrawerBackdrop.classList.add('opacity-0');
+      document.body.classList.remove('overflow-hidden');
+      setTimeout(() => {
+        sideDrawer.classList.add('invisible', 'pointer-events-none');
+      }, 300);
+    }
+
+    if (btnMoreSide) {
+      btnMoreSide.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSideDrawer();
+      });
+    }
+
+    if (sideDrawerClose) {
+      sideDrawerClose.addEventListener('click', closeSideDrawer);
+    }
+
+    if (sideDrawerBackdrop) {
+      sideDrawerBackdrop.addEventListener('click', closeSideDrawer);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSideDrawer();
+      }
+    });
+
+
+
+    btnDay1.addEventListener('click', () => {
+      // Toggle CSS Styles
+      btnDay1.className = "px-5 py-2.5 rounded-sm text-xs font-mono font-bold tracking-widest transition-all bg-red-600 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]";
+      btnDay2.className = "px-5 py-2.5 rounded-sm text-xs font-mono font-bold tracking-widest transition-all text-zinc-500 hover:text-zinc-100";
+      
+      // Hide / Show Elements
+      gridDay1.classList.remove('hidden');
+      gridDay2.classList.add('hidden');
+    });
+
+    btnDay2.addEventListener('click', () => {
+      // Toggle CSS Styles
+      btnDay2.className = "px-5 py-2.5 rounded-sm text-xs font-mono font-bold tracking-widest transition-all bg-red-600 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]";
+      btnDay1.className = "px-5 py-2.5 rounded-sm text-xs font-mono font-bold tracking-widest transition-all text-zinc-500 hover:text-zinc-100";
+      
+      // Hide / Show Elements
+      gridDay2.classList.remove('hidden');
+      gridDay1.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

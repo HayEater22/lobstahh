@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lobster Cup International 2026 | Silicon Valley Off-Season</title>
+  <!-- Google Fonts: Montserrat, Space Grotesk, Inter, and JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'Inter', 'sans-serif'],
+            display: ['Montserrat', 'Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            allianceRed: '#ef4444',
+            allianceRedDark: '#b91c1c',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    /* Subtle dot grid and atmospheric red glow */
+    .tech-bg {
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(239, 68, 68, 0.05) 0%, transparent 60%),
+        radial-gradient(rgba(39, 39, 42, 0.3) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-black text-zinc-400 font-sans antialiased min-h-screen flex flex-col tech-bg select-none">
+
+
+
+  <!-- Sticky Header Navigation Bar Component -->
+  <header id="main-header" class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center">
+        <a id="brand-logo" href="/" class="flex items-center gap-3 font-extrabold text-zinc-100 tracking-wider text-base hover:text-red-500 transition-all uppercase">
+          <img src="/assets/lobster_logo.png" alt="Lobster Cup Logo" class="w-8 h-8 object-contain">
+          <span>LOBSTER CUP INTERNATIONAL</span>
+        </a>
+      </div>
+      <nav id="nav-menu" class="hidden md:flex items-center space-x-8 font-display text-xs font-semibold tracking-widest">
+        <a id="link-event" href="/event" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase">EVENT INFO</a>
+        <a id="link-volunteer" href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase flex items-center gap-1">VOLUNTEER <span class="text-[10px]">↗</span></a>
+        <a id="btn-register" href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-sm flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+          REGISTER <span class="text-[10px]">↗</span>
+        </a>
+
+        <!-- More Button Link (Opens Side Drawer) -->
+        <button id="btn-more-side" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase flex items-center gap-1 font-display text-xs font-semibold tracking-widest bg-transparent border-0 outline-none cursor-pointer">
+          <span>MORE</span>
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </nav>
+      <!-- Mobile Nav Toggle button -->
+      <button id="mobile-menu-toggle" class="md:hidden flex items-center text-zinc-400 hover:text-zinc-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-black px-4 pt-2 pb-4 space-y-3 font-display">
+      <a href="/event" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">EVENT INFO</a>
+      <a href="/schedule" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">SCHEDULE</a>
+      <a href="/judging" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">JUDGING</a>
+      <a href="/past-seasons" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">PAST SEASONS</a>
+      <a href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">VOLUNTEER ↗</a>
+      <a href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="block text-center py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold tracking-widest uppercase rounded">
+        REGISTER ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Side Drawer Navigation Panel -->
+  <div id="side-drawer" class="fixed inset-0 z-50 invisible pointer-events-none">
+    <!-- Backdrop, transition fade -->
+    <div id="side-drawer-backdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 ease-in-out cursor-pointer"></div>
+    
+    <!-- Panel, transition-transform slide out right -->
+    <div id="side-drawer-panel" class="absolute top-0 right-0 h-full w-80 max-w-full bg-zinc-950/98 border-l border-zinc-900 shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto backdrop-blur-md p-8">
+      
+      <!-- Top Actions / Header -->
+      <div class="space-y-8">
+        <div class="flex items-center justify-between border-b border-zinc-900 pb-5">
+          <div class="flex items-center gap-2.5 font-extrabold text-zinc-100 tracking-wider text-xs uppercase">
+            <img src="/assets/lobster_logo.png" alt="Lobster Cup Logo" class="w-6 h-6 object-contain">
+            <span>MORE</span>
+          </div>
+          <!-- Close button -->
+          <button id="side-drawer-close" class="text-zinc-500 hover:text-zinc-100 transition-colors focus:outline-none" aria-label="Close Sidebar Menu">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links inside Side Menu -->
+        <nav class="flex flex-col space-y-5 font-display text-xs font-bold tracking-widest">
+          <a href="/schedule" id="side-link-schedule" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Schedule</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/judging" id="side-link-judging" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Judging</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/past-seasons" id="side-link-past-seasons" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Past Seasons Archive</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/event" id="side-link-event" class="group flex items-center justify-between text-zinc-500 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors sm:hidden">
+            <span>Event Info</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="group flex items-center justify-between text-zinc-500 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors sm:hidden">
+            <span>Volunteer ↗</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Footer / Meta Block inside Side Menu -->
+      <div class="space-y-5 border-t border-zinc-900 pt-6">
+        <a id="side-btn-register" href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="w-full text-center block bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold tracking-widest uppercase py-3 rounded-sm transition-all shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+          REGISTER FOR TOURNAMENT ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <main id="main-content" class="flex-grow flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16 md:pt-6 md:pb-24 w-full relative z-10">
+    
+    <!-- Copywrite and Slogan details -->
+    <div class="space-y-4 text-center max-w-4xl mx-auto mb-16">
+
+      <div id="title-block" class="space-y-4">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[77px] font-black text-zinc-50 tracking-tighter uppercase" style="margin-top: -10px; padding-top: 0px; font-size: 77px; line-height: 68px;">
+          LOBSTER CUP <span style="color: #ef4444;">INTERNATIONAL</span>
+        </h1>
+      </div>
+
+      <!-- Image Carousel Section inside Hero -->
+      <div id="image-carousel-container" class="w-full max-w-5xl mx-auto mt-6 relative group">
+        <!-- Outer container with rounded corners, sleek border, and soft red shadow -->
+        <div class="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] w-full bg-zinc-950 border border-zinc-800/80 rounded-lg shadow-[0_0_35px_rgba(239,68,68,0.04)] hover:shadow-[0_0_40px_rgba(239,68,68,0.08)] transition-all duration-300">
+          
+          <!-- Slides Wrapper -->
+          <div id="carousel-slides" class="relative w-full h-full flex transition-transform duration-500 ease-in-out">
+            
+            <!-- Slide 1: Professional Competition Arena -->
+            <div class="w-full h-full shrink-0 relative bg-zinc-950">
+              <img src="/assets/Home_Image_1.png" alt="FIRST Tech Challenge Competition Arena" referrerPolicy="no-referrer"
+                   class="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+ 
+            <!-- Slide 2: Premium Awards and Trophies -->
+            <div class="w-full h-full shrink-0 relative bg-zinc-950">
+              <img src="/assets/Home_Image_2.png" alt="Lobster Cup Awards and Trophies" referrerPolicy="no-referrer"
+                   class="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+ 
+            <!-- Slide 3: FTC Robot Close-up -->
+            <div class="w-full h-full shrink-0 relative bg-zinc-950">
+              <img src="/assets/Home_Image_3.png" alt="FTC Robot Engineering Details" referrerPolicy="no-referrer"
+                   class="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+ 
+            <!-- Slide 4: Mascot Lobsters in Workshop -->
+            <div class="w-full h-full shrink-0 relative bg-zinc-950">
+              <img src="/assets/Home_Image_4.png" alt="Lobster Cup Mascot Lobsters" referrerPolicy="no-referrer"
+                   class="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+
+            <!-- Slide 5: High Intensity Team Pit -->
+            <div class="w-full h-full shrink-0 relative bg-zinc-950">
+              <img src="/assets/Home_Image_5.png" alt="Robotics Team Pitt Area Diagnostics" referrerPolicy="no-referrer"
+                   class="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+
+            <!-- Slide 6: Action Gameplay Sample Intake -->
+            <div class="w-full h-full shrink-0 relative bg-zinc-950">
+              <img src="/assets/Home_Image_6.png" alt="FTC Robot Intra-Claws Capture" referrerPolicy="no-referrer"
+                   class="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+ 
+          </div>
+
+          <!-- Slide Index Overlay -->
+          <div class="absolute top-4 right-4 z-20 px-2.5 py-1 bg-black/60 border border-zinc-800 rounded text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">
+            <span id="carousel-current-index">1</span> / <span id="carousel-total-index">6</span>
+          </div>
+
+          <!-- Controls (Prev / Next Arrows) -->
+          <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-black/60 border border-zinc-800 hover:border-red-500 hover:bg-black/90 text-zinc-300 hover:text-white flex items-center justify-center rounded-full transition-all duration-300 shadow-md group-hover:opacity-100 md:opacity-0 md:group-hover:translate-x-0 md:-translate-x-1 focus:outline-none" aria-label="Previous Slide">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-black/60 border border-zinc-800 hover:border-red-500 hover:bg-black/90 text-zinc-300 hover:text-white flex items-center justify-center rounded-full transition-all duration-300 shadow-md group-hover:opacity-100 md:opacity-0 md:group-hover:translate-x-0 md:translate-x-1 focus:outline-none" aria-label="Next Slide">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <!-- Bottom Bullet Indicators & Toggle autoplay -->
+          <div class="absolute bottom-4 right-6 z-20 flex items-center gap-3">
+            <button id="carousel-play-pause" class="w-6 h-6 bg-black/60 border border-zinc-800 hover:border-red-500 hover:bg-black/95 text-zinc-400 hover:text-zinc-100 flex items-center justify-center rounded transition-all focus:outline-none" title="Toggle Autoplay">
+              <svg id="icon-pause" class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+              </svg>
+              <svg id="icon-play" class="w-3 h-3 hidden" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+            <div id="carousel-dots" class="flex gap-1.5">
+              <button class="w-2 h-2 rounded-full border border-zinc-700 hover:border-red-500 bg-red-500 transition-all duration-300" data-index="0" aria-label="Go to Slide 1"></button>
+              <button class="w-2 h-2 rounded-full border border-zinc-700 hover:border-red-500 bg-zinc-800 transition-all duration-300" data-index="1" aria-label="Go to Slide 2"></button>
+              <button class="w-2 h-2 rounded-full border border-zinc-700 hover:border-red-500 bg-zinc-800 transition-all duration-300" data-index="2" aria-label="Go to Slide 3"></button>
+              <button class="w-2 h-2 rounded-full border border-zinc-700 hover:border-red-500 bg-zinc-800 transition-all duration-300" data-index="3" aria-label="Go to Slide 4"></button>
+              <button class="w-2 h-2 rounded-full border border-zinc-700 hover:border-red-500 bg-zinc-800 transition-all duration-300" data-index="4" aria-label="Go to Slide 5"></button>
+              <button class="w-2 h-2 rounded-full border border-zinc-700 hover:border-red-500 bg-zinc-800 transition-all duration-300" data-index="5" aria-label="Go to Slide 6"></button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Quick Features Bento Blocks -->
+    <section id="highlights-section" class="mt-[-21px] pl-[1px] pt-12 border-t border-zinc-900">
+
+      <!-- Navigation & Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto mb-4 font-display">
+        <a id="btn-home-event-info" href="/event" class="w-full sm:w-auto px-8 py-4 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white rounded-lg text-center text-xs md:text-sm font-bold tracking-widest uppercase transition-all duration-200 shadow-lg hover:scale-[1.02] active:scale-[0.98]">
+          EVENT INFO
+        </a>
+        <a id="btn-home-volunteer" href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white rounded-lg text-center text-xs md:text-sm font-bold tracking-widest uppercase transition-all duration-200 shadow-lg hover:scale-[1.02] active:scale-[0.98]">
+          VOLUNTEER ↗
+        </a>
+        <a id="btn-home-register" href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="w-full sm:w-auto px-10 py-4 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white rounded-lg text-center text-xs md:text-sm font-black tracking-widest uppercase transition-all duration-200 shadow-lg hover:scale-[1.02] active:scale-[0.98]">
+          REGISTER NOW ↗
+        </a>
+      </div>
+
+      <!-- Live JS Countdown Widget Banner -->
+      <div id="countdown-card" class="w-full max-w-md mx-auto mb-12 bg-zinc-900/40 border border-zinc-850 p-4 rounded-lg relative overflow-hidden hover:border-zinc-700/80 hover:bg-zinc-900 transition-all duration-300 shadow-[0_0_20px_rgba(239,68,68,0.02)]">
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-red-500/5 rounded-full blur-2xl"></div>
+        <div class="flex flex-col items-center justify-center relative z-10 w-full">
+          
+          <div id="timer-display" class="grid grid-cols-4 gap-2.5 text-center w-full max-w-md mx-auto">
+            <!-- DAYS -->
+            <div id="timer-days-card" class="bg-zinc-950/90 border border-zinc-800/80 px-4 py-2.5 rounded shadow-inner">
+              <span id="days" class="block text-3xl font-mono font-bold text-red-500 leading-none">00</span>
+              <span class="block text-[9px] font-bold text-zinc-500 uppercase tracking-widest mt-1.5">Days</span>
+            </div>
+
+            <!-- HOURS -->
+            <div id="timer-hours-card" class="bg-zinc-950/90 border border-zinc-800/80 px-4 py-2.5 rounded shadow-inner">
+              <span id="hours" class="block text-3xl font-mono font-bold text-red-500 leading-none">00</span>
+              <span class="block text-[9px] font-bold text-zinc-500 uppercase tracking-widest mt-1.5">Hours</span>
+            </div>
+
+            <!-- MINS -->
+            <div id="timer-mins-card" class="bg-zinc-950/90 border border-zinc-800/80 px-4 py-2.5 rounded shadow-inner">
+              <span id="minutes" class="block text-3xl font-mono font-bold text-red-500 leading-none">00</span>
+              <span class="block text-[9px] font-bold text-zinc-500 uppercase tracking-widest mt-1.5">Mins</span>
+            </div>
+
+            <!-- SECS -->
+            <div id="timer-secs-card" class="bg-zinc-950/90 border border-zinc-800/80 px-4 py-2.5 rounded shadow-inner">
+              <span id="seconds" class="block text-3xl font-mono font-bold text-red-500 leading-none">00</span>
+              <span class="block text-[9px] font-bold text-zinc-500 uppercase tracking-widest mt-1.5">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Countdown Complete Banner -->
+        <div id="countdown-completed" class="hidden text-center py-2 bg-red-500/10 border border-red-500/30 rounded mt-4">
+          <span class="font-mono text-red-400 font-bold text-xs tracking-widest uppercase">LIVE NOW // TOURNAMENT UNDERWAY</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-6">
+        
+        <div id="feature-card-1" class="bg-zinc-900/60 border border-zinc-850 p-6 rounded-lg transition-all duration-300 hover:border-zinc-700/80 hover:bg-zinc-900">
+          <div class="w-8 h-8 bg-red-500/10 text-red-500 flex items-center justify-center rounded mb-4">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" stroke-dasharray="" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-zinc-200 mb-2">High Intensity Play</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed font-light font-sans">
+            Fully updated for the newest seasonal challenges. Top-tier engineering meets autonomous driving optimizations on clean, high-precision competitive fields.
+          </p>
+        </div>
+
+        <div id="feature-card-2" class="bg-zinc-900/60 border border-zinc-850 p-6 rounded-lg transition-all duration-300 hover:border-zinc-700/80 hover:bg-zinc-900">
+          <div class="w-8 h-8 bg-red-500/10 text-red-500 flex items-center justify-center rounded mb-4">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-zinc-200 mb-2">Elite Off-Season Network</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed font-light font-sans">
+            Conjoin with competitive FIRST Tech Challenge teams from across the West Coast and internationally, showcasing standard strategies and innovative telemetry.
+          </p>
+        </div>
+
+        <div id="feature-card-3" class="bg-zinc-900/60 border border-zinc-850 p-6 rounded-lg transition-all duration-300 hover:border-zinc-700/80 hover:bg-zinc-900">
+          <div class="w-8 h-8 bg-red-500/10 text-red-500 flex items-center justify-center rounded mb-4">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-zinc-200 mb-2">Live Telemetry Broadcasts</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed font-light font-sans">
+            Matches are analyzed dynamically with custom statistics modules, broadcasting feed setups, and clean alliance rankings displayed on-site and.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Footer -->
+  <footer id="main-footer" class="border-t border-zinc-900 bg-zinc-950/40 py-8 text-center text-xs text-zinc-500 font-mono">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2026 FTC Lobster Cup International. This event is an unofficial community off-season event hosted in alliance with local FIRST Tech Challenge coordinators.</p>
+    </div>
+  </footer>
+
+  <!-- Script for Mobile Menu and Real-Time Countdown -->
+  <script>
+    // Navigation Dropdown Mobile Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Side Drawer JavaScript Controller
+    const sideDrawer = document.getElementById('side-drawer');
+    const sideDrawerBackdrop = document.getElementById('side-drawer-backdrop');
+    const sideDrawerPanel = document.getElementById('side-drawer-panel');
+    const btnMoreSide = document.getElementById('btn-more-side');
+    const sideDrawerClose = document.getElementById('side-drawer-close');
+
+    function openSideDrawer() {
+      sideDrawer.classList.remove('invisible', 'pointer-events-none');
+      sideDrawerBackdrop.classList.remove('opacity-0');
+      document.body.classList.add('overflow-hidden');
+      setTimeout(() => {
+        sideDrawerPanel.classList.remove('translate-x-full');
+      }, 10);
+    }
+
+    function closeSideDrawer() {
+      sideDrawerPanel.classList.add('translate-x-full');
+      sideDrawerBackdrop.classList.add('opacity-0');
+      document.body.classList.remove('overflow-hidden');
+      setTimeout(() => {
+        sideDrawer.classList.add('invisible', 'pointer-events-none');
+      }, 300);
+    }
+
+    if (btnMoreSide) {
+      btnMoreSide.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSideDrawer();
+      });
+    }
+
+    if (sideDrawerClose) {
+      sideDrawerClose.addEventListener('click', closeSideDrawer);
+    }
+
+    if (sideDrawerBackdrop) {
+      sideDrawerBackdrop.addEventListener('click', closeSideDrawer);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSideDrawer();
+      }
+    });
+
+
+
+    // Javascript Countdown Widget Engine
+    function startCountdown() {
+      // Countdown Kickoff Target Date: August 8, 2026 at 09:00:00 AM PDT (UTC-7)
+      // Let's target August 8, 2026 16:00:00 UTC (9:00 AM San Mateo local time)
+      const targetDate = new Date('2026-08-08T16:00:00Z').getTime();
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      const completedBanner = document.getElementById('countdown-completed');
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference < 0) {
+          clearInterval(interval);
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minutesEl.textContent = '00';
+          secondsEl.textContent = '00';
+          // Show tournament underway banner
+          if (completedBanner) {
+            completedBanner.classList.remove('hidden');
+          }
+          return;
+        }
+
+        // Calculate time periods
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // Map content
+        daysEl.textContent = String(d).padStart(2, '0');
+        hoursEl.textContent = String(h).padStart(2, '0');
+        minutesEl.textContent = String(m).padStart(2, '0');
+        secondsEl.textContent = String(s).padStart(2, '0');
+
+      }, 1000);
+    }
+
+    // Image Carousel Interactive Engine
+    function startCarousel() {
+      const slidesContainer = document.getElementById('carousel-slides');
+      const prevButton = document.getElementById('carousel-prev');
+      const nextButton = document.getElementById('carousel-next');
+      const currentIndexEl = document.getElementById('carousel-current-index');
+      const playPauseButton = document.getElementById('carousel-play-pause');
+      const iconPlay = document.getElementById('icon-play');
+      const iconPause = document.getElementById('icon-pause');
+      const dotButtons = document.querySelectorAll('#carousel-dots button');
+      
+      let currentIndex = 0;
+      const totalSlides = 6;
+      let autoplayInterval = null;
+      let isPlaying = true;
+      const autoplayDelay = 5000;
+
+      // Update Slides Position & Indicators
+      function updateCarousel() {
+        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        currentIndexEl.textContent = currentIndex + 1;
+
+        // Update Dots Active Styling
+        dotButtons.forEach((dot, idx) => {
+          if (idx === currentIndex) {
+            dot.classList.remove('bg-zinc-800');
+            dot.classList.add('bg-red-500', 'w-4'); // Capsule highlight
+          } else {
+            dot.classList.remove('bg-red-500', 'w-4');
+            dot.classList.add('bg-zinc-800');
+          }
+        });
+      }
+
+      // Next Slide transition
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }
+
+      // Previous Slide transition
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      // Set and clear autoplay intervals
+      function startAutoplay() {
+        if (isPlaying) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = setInterval(nextSlide, autoplayDelay);
+        }
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayInterval);
+      }
+
+      // Navigation Arrow Events
+      prevButton.addEventListener('click', () => {
+        prevSlide();
+        startAutoplay(); // Reset timer
+      });
+
+      nextButton.addEventListener('click', () => {
+        nextSlide();
+        startAutoplay(); // Reset timer
+      });
+
+      // Dot Quick Navigation Events
+      dotButtons.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          currentIndex = parseInt(e.currentTarget.getAttribute('data-index'));
+          updateCarousel();
+          startAutoplay(); // Reset timer
+        });
+      });
+
+      // Play/Pause Action
+      playPauseButton.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+          iconPause.classList.remove('hidden');
+          iconPlay.classList.add('hidden');
+          startAutoplay();
+        } else {
+          iconPause.classList.add('hidden');
+          iconPlay.classList.remove('hidden');
+          stopAutoplay();
+        }
+      });
+
+      // Touch navigation (swipe gesture) support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      slidesContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      slidesContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+          nextSlide();
+          startAutoplay();
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+          prevSlide();
+          startAutoplay();
+        }
+      }
+
+      // Mouse Hover Auto-Pause Support
+      slidesContainer.parentElement.addEventListener('mouseenter', () => {
+        if (isPlaying) stopAutoplay();
+      });
+
+      slidesContainer.parentElement.addEventListener('mouseleave', () => {
+        if (isPlaying) startAutoplay();
+      });
+
+      // Initialize
+      updateCarousel();
+      startAutoplay();
+    }
+
+    // Initialize Countdown and Carousel on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      startCountdown();
+      startCarousel();
+    });
+  </script>
+</body>
+</html>

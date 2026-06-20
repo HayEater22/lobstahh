@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teams List | FTC Lobster Cup</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'Inter', 'sans-serif'],
+            display: ['Montserrat', 'Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            allianceRed: '#ef4444',
+            allianceRedDark: '#b91c1c',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    .tech-bg {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(239, 68, 68, 0.04) 0%, transparent 50%),
+        radial-gradient(rgba(39, 39, 42, 0.25) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-black text-zinc-400 font-sans antialiased min-h-screen flex flex-col tech-bg select-none">
+
+  <!-- Sticky Header Navigation Bar Component -->
+  <header id="main-header" class="sticky top-0 z-50 w-full border-b border-zinc-900 bg-black/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center">
+        <a id="brand-logo" href="/" class="flex items-center gap-3 font-extrabold text-zinc-100 tracking-wider text-base hover:text-red-500 transition-all uppercase">
+          <img src="/assets/lobster_logo.png" alt="Lobster Cup Logo" class="w-8 h-8 object-contain">
+          <span>LOBSTER CUP INTERNATIONAL</span>
+        </a>
+      </div>
+      <nav id="nav-menu" class="hidden md:flex items-center space-x-8 font-display text-xs font-semibold tracking-widest">
+        <a id="link-event" href="/event" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase">EVENT INFO</a>
+        <a id="link-volunteer" href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="text-zinc-500 hover:text-zinc-100 transition-colors uppercase flex items-center gap-1">VOLUNTEER <span class="text-[10px]">↗</span></a>
+        <a id="btn-register" href="https://buy.stripe.com/bJe6oIcUn3mtdQa6KH1oI00" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-sm flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+          REGISTER <span class="text-[10px]">↗</span>
+        </a>
+
+        <!-- More Button Link (Opens Side Drawer) -->
+        <button id="btn-more-side" class="text-zinc-100 border-b-2 border-red-500 pb-1 font-bold tracking-widest hover:text-zinc-100 transition-all bg-transparent border-0 outline-none cursor-pointer">
+          <span>MORE</span>
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </nav>
+      <!-- Mobile Nav Toggle button -->
+      <button id="mobile-menu-toggle" class="md:hidden flex items-center text-zinc-400 hover:text-zinc-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-black px-4 pt-2 pb-4 space-y-3 font-display">
+      <a href="/event" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">EVENT INFO</a>
+      <a href="/schedule" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">SCHEDULE</a>
+      <a href="/judging" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">JUDGING</a>
+      <a href="/teams" class="block text-red-500 hover:text-red-400 py-2 border-b border-zinc-900 text-xs font-bold tracking-widest uppercase">TEAMS LIST</a>
+      <a href="/past-seasons" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">PAST SEASONS</a>
+      <a href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">VOLUNTEER ↗</a>
+      <a href="https://buy.stripe.com/bJe6oIcUn3mtdQa6KH1oI00" target="_blank" class="block text-center py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold tracking-widest uppercase rounded">
+        REGISTER ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Side Drawer Navigation Panel -->
+  <div id="side-drawer" class="fixed inset-0 z-50 invisible pointer-events-none">
+    <!-- Backdrop, transition fade -->
+    <div id="side-drawer-backdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 ease-in-out cursor-pointer"></div>
+    
+    <!-- Panel, transition-transform slide out right -->
+    <div id="side-drawer-panel" class="absolute top-0 right-0 h-full w-80 max-w-full bg-zinc-950/98 border-l border-zinc-900 shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto backdrop-blur-md p-8">
+      
+      <!-- Top Actions / Header -->
+      <div class="space-y-8">
+        <div class="flex items-center justify-between border-b border-zinc-900 pb-5">
+          <div class="flex items-center gap-2.5 font-extrabold text-zinc-100 tracking-wider text-xs uppercase">
+            <img src="/assets/lobster_logo.png" alt="Lobster Cup Logo" class="w-6 h-6 object-contain">
+            <span>MORE</span>
+          </div>
+          <!-- Close button -->
+          <button id="side-drawer-close" class="text-zinc-500 hover:text-zinc-100 transition-colors focus:outline-none" aria-label="Close Sidebar Menu">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links inside Side Menu -->
+        <nav class="flex flex-col space-y-5 font-display text-xs font-bold tracking-widest">
+          <a href="/schedule" id="side-link-schedule" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Schedule</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/judging" id="side-link-judging" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Judging</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/teams" id="side-link-teams" class="group flex items-center justify-between text-zinc-100 border-l-2 border-red-500 pl-3 py-2 uppercase transition-all">
+            <span>Teams List</span>
+            <span class="text-[10px] text-red-500">ACTIVE</span>
+          </a>
+          <a href="/past-seasons" id="side-link-past-seasons" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
+            <span>Past Seasons Archive</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="/event" id="side-link-event" class="group flex items-center justify-between text-zinc-500 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors sm:hidden">
+            <span>Event Info</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+          <a href="https://forms.gle/mockLobsterCupVolunteer" target="_blank" class="group flex items-center justify-between text-zinc-500 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors sm:hidden">
+            <span>Volunteer ↗</span>
+            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Footer / Meta Block inside Side Menu -->
+      <div class="space-y-5 border-t border-zinc-900 pt-6">
+        <a id="side-btn-register" href="https://buy.stripe.com/bJe6oIcUn3mtdQa6KH1oI00" target="_blank" class="w-full text-center block bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold tracking-widest uppercase py-3 rounded-sm transition-all shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+          REGISTER FOR TOURNAMENT ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main id="teams-container" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full relative z-10 flex flex-col justify-start">
+    
+    <!-- Hero Header section -->
+    <div class="border-b border-zinc-900 pb-8 mb-8 text-center md:text-left flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-black text-zinc-50 tracking-tighter leading-none uppercase">
+          REGISTERED TEAMS
+        </h1>
+        <p class="text-xl md:text-2xl font-extrabold text-zinc-100 tracking-tight mt-3">
+          TOTAL TEAMS: <span id="teams-count" class="text-red-500 font-black">-</span>
+        </p>
+      </div>
+
+      <!-- Live Search Bar -->
+      <div class="w-full md:w-80">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="team-search" 
+            placeholder="Search by ID, name, city..." 
+            class="w-full bg-zinc-900/60 border border-zinc-800/80 rounded px-4 py-3 pl-10 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition-all font-sans font-light"
+          />
+          <svg class="absolute left-3 top-3.5 h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Loading State -->
+    <div id="teams-loading" class="py-24 flex flex-col items-center justify-center space-y-4">
+      <div class="relative w-12 h-12">
+        <div class="absolute inset-0 rounded-full border-4 border-red-500/10"></div>
+        <div class="absolute inset-0 rounded-full border-4 border-red-500 border-t-transparent animate-spin"></div>
+      </div>
+      <p class="font-mono text-xs text-zinc-500 tracking-widest uppercase">Fetching FTC Roster...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="teams-error" class="hidden bg-zinc-900/40 border border-red-900/30 rounded-lg p-8 py-16 text-center max-w-2xl mx-auto flex flex-col items-center justify-center space-y-4">
+        <div class="p-3 bg-red-500/10 rounded-full border border-red-500/20 text-red-500 mb-2">
+          <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <h3 class="font-display font-black text-lg text-zinc-200 uppercase tracking-wider">Failed to Load FTC API Data</h3>
+        <p id="error-message-text" class="text-sm text-zinc-500 max-w-md leading-relaxed"></p>
+        <button onclick="loadTeams()" class="mt-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 px-6 py-2.5 rounded text-xs font-bold tracking-widest uppercase transition-all">
+          Retry Fetch
+        </button>
+    </div>
+
+    <!-- Empty State -->
+    <div id="teams-empty" class="hidden text-center py-20">
+      <p class="font-mono text-xs text-zinc-500 tracking-widest uppercase">No teams match your search criteria.</p>
+    </div>
+
+    <!-- Roster Grid -->
+    <div id="teams-grid" class="flex flex-col gap-3.5"></div>
+
+    <!-- Update Disclaimer -->
+    <p class="text-[10px] text-zinc-500 font-mono tracking-widest mt-8 border-t border-zinc-900/60 pt-6 uppercase flex items-center justify-center gap-1.5 select-none w-full text-center">
+      <svg class="h-3.5 w-3.5 text-red-500/80 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      Please note: Team roster data will take some time to refresh after registration updates.
+    </p>
+
+    <!-- Back to Top Button in bottom left -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 z-50 bg-zinc-950/90 hover:bg-zinc-900 text-zinc-300 hover:text-red-500 border border-zinc-800 hover:border-red-500/30 p-3.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center cursor-pointer group backdrop-blur-md">
+      <svg class="h-5 w-5 transform group-hover:-translate-y-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+
+  </main>
+
+  <!-- Sticky Footer -->
+  <footer id="main-footer" class="border-t border-zinc-900 bg-zinc-950/40 py-8 text-center text-xs text-zinc-500 font-mono mt-auto">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2026 FTC Lobster Cup International.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Global team cache
+    let activeTeams = [];
+
+    // Navigation Dropdown Mobile Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Side Drawer JavaScript Controller
+    const sideDrawer = document.getElementById('side-drawer');
+    const sideDrawerBackdrop = document.getElementById('side-drawer-backdrop');
+    const sideDrawerPanel = document.getElementById('side-drawer-panel');
+    const btnMoreSide = document.getElementById('btn-more-side');
+    const sideDrawerClose = document.getElementById('side-drawer-close');
+
+    function openSideDrawer() {
+      sideDrawer.classList.remove('invisible', 'pointer-events-none');
+      sideDrawerBackdrop.classList.remove('opacity-0');
+      document.body.classList.add('overflow-hidden');
+      setTimeout(() => {
+        sideDrawerPanel.classList.remove('translate-x-full');
+      }, 10);
+    }
+
+    function closeSideDrawer() {
+      sideDrawerPanel.classList.add('translate-x-full');
+      sideDrawerBackdrop.classList.add('opacity-0');
+      document.body.classList.remove('overflow-hidden');
+      setTimeout(() => {
+        sideDrawer.classList.add('invisible', 'pointer-events-none');
+      }, 300);
+    }
+
+    if (btnMoreSide) {
+      btnMoreSide.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSideDrawer();
+      });
+    }
+
+    if (sideDrawerClose) {
+      sideDrawerClose.addEventListener('click', closeSideDrawer);
+    }
+
+    if (sideDrawerBackdrop) {
+      sideDrawerBackdrop.addEventListener('click', closeSideDrawer);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSideDrawer();
+      }
+    });
+
+    // Roster Loader API logic
+    async function loadTeams() {
+      const loadingEl = document.getElementById('teams-loading');
+      const errorEl = document.getElementById('teams-error');
+      const gridEl = document.getElementById('teams-grid');
+      const searchEl = document.getElementById('team-search');
+
+      loadingEl.classList.remove('hidden');
+      errorEl.classList.add('hidden');
+      gridEl.innerHTML = '';
+
+      try {
+        const response = await fetch('/api/teams?season=2025&eventCode=USCANOSMS1');
+        if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}`);
+        }
+        const data = await response.json();
+        
+        if (data.error) {
+          throw new Error(data.details || data.error);
+        }
+
+        activeTeams = data.teams || [];
+
+        // Update the total teams count
+        const countSpan = document.getElementById('teams-count');
+        if (countSpan) {
+          countSpan.textContent = activeTeams.length;
+        }
+
+        // Display Teams Roster
+        renderTeams(activeTeams);
+        loadingEl.classList.add('hidden');
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('error-message-text').textContent = err.message || 'Make sure server configuration and internet access to the FTC API are active.';
+        errorEl.classList.remove('hidden');
+        loadingEl.classList.add('hidden');
+      }
+    }
+
+    function renderTeams(teams) {
+      const gridEl = document.getElementById('teams-grid');
+      const emptyEl = document.getElementById('teams-empty');
+      gridEl.innerHTML = '';
+
+      if (teams.length === 0) {
+        emptyEl.classList.remove('hidden');
+        return;
+      }
+      emptyEl.classList.add('hidden');
+
+      const stateMapping = {
+        'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
+        'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'FL': 'Florida', 'GA': 'Georgia',
+        'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa',
+        'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+        'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri',
+        'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey',
+        'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio',
+        'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+        'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont',
+        'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming',
+        'PR': 'Puerto Rico', 'DC': 'District of Columbia', 'VI': 'Virgin Islands', 'AE': 'Armed Forces Europe',
+        'AP': 'Armed Forces Pacific', 'AA': 'Armed Forces Americas',
+        'AB': 'Alberta', 'BC': 'British Columbia', 'MB': 'Manitoba', 'NB': 'New Brunswick',
+        'NL': 'Newfoundland and Labrador', 'NS': 'Nova Scotia', 'NT': 'Northwest Territories',
+        'NU': 'Nunavut', 'ON': 'Ontario', 'PE': 'Prince Edward Island', 'QC': 'Quebec', 'SK': 'Saskatchewan',
+        'YT': 'Yukon'
+      };
+
+      teams.forEach(team => {
+        const teamCard = document.createElement('div');
+        teamCard.className = 'group relative bg-zinc-900/40 border border-zinc-900/80 rounded-lg p-5 transition-all duration-200 backdrop-blur-sm grid grid-cols-1 sm:grid-cols-4 items-center gap-4 hover:border-zinc-800/80 hover:bg-zinc-900/60';
+        
+        const rawState = (team.stateProv || '').trim();
+        const stateKey = rawState.toUpperCase();
+        const stateText = stateMapping[stateKey] || rawState || 'N/A';
+        const countryText = team.country || 'N/A';
+        const teamNum = team.teamNumber || '';
+        const teamNameText = team.nameShort || team.nameFull || '';
+
+        teamCard.innerHTML = `
+          <!-- Left: Team Number and Title stacked -->
+          <div class="flex flex-col justify-center">
+            <span class="font-display font-bold text-xl text-zinc-100 group-hover:text-red-500 transition-colors leading-none">${teamNum}</span>
+            <span class="font-display font-extrabold text-sm text-zinc-400 uppercase tracking-wide mt-1.5 leading-tight">${teamNameText}</span>
+          </div>
+
+          <!-- Middle Left: State/Province -->
+          <div class="sm:text-center flex items-center sm:justify-center">
+            <span class="font-sans font-semibold text-zinc-300 text-sm tracking-wide">${stateText}</span>
+          </div>
+
+          <!-- Middle Right: Country -->
+          <div class="sm:text-center flex items-center sm:justify-center">
+            <span class="font-sans font-semibold text-zinc-400 text-sm tracking-wide uppercase">${countryText}</span>
+          </div>
+
+          <!-- Far Right: About CTA linked to firstinspires for that team number -->
+          <div class="flex sm:justify-end items-center">
+            <a href="https://ftc-events.firstinspires.org/2025/team/${teamNum}" target="_blank" class="bg-red-600 hover:bg-red-500 text-white font-bold px-7 py-2 rounded text-sm transition-all uppercase tracking-wider block text-center w-full sm:w-auto shadow-[0_2px_10px_rgba(239,68,68,0.25)] hover:shadow-[0_4px_15px_rgba(239,68,68,0.4)]">
+              About
+            </a>
+          </div>
+        `;
+        gridEl.appendChild(teamCard);
+      });
+    }
+
+    // Incremental Search filter UI Event handler
+    const sInput = document.getElementById('team-search');
+    sInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        renderTeams(activeTeams);
+        return;
+      }
+
+      const filtered = activeTeams.filter(t => {
+        const numStr = (t.teamNumber || '').toString();
+        const shortName = (t.nameShort || '').toLowerCase();
+        const fullName = (t.nameFull || '').toLowerCase();
+        const city = (t.city || '').toLowerCase();
+        const state = (t.stateProv || '').toLowerCase();
+        const country = (t.country || '').toLowerCase();
+        const school = (t.schoolName || '').toLowerCase();
+
+        return numStr.includes(q) || 
+               shortName.includes(q) || 
+               fullName.includes(q) || 
+               city.includes(q) || 
+               state.includes(q) || 
+               country.includes(q) || 
+               school.includes(q);
+      });
+
+      renderTeams(filtered);
+    });
+
+    // Back to Top Button Interaction
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+          backToTopBtn.classList.add('opacity-100');
+        } else {
+          backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+          backToTopBtn.classList.remove('opacity-100');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Boot Loader trigger
+    document.addEventListener('DOMContentLoaded', loadTeams);
+  </script>
+</body>
+</html>

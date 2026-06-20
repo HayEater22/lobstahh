@@ -311,7 +311,9 @@
       gridEl.innerHTML = '';
 
       try {
-        const response = await fetch('/api/teams?season=2025&eventCode=USCANOSMS1');
+        const season = '2025';
+        const eventCode = 'USCANOSMS1';
+        const response = await fetch(`/api/teams?season=${season}&ntCode=${eventCode}`);
         if (!response.ok) {
           throw new Error(`Server responded with ${response.status}`);
         }

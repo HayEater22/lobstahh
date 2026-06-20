@@ -373,9 +373,9 @@ app.get("/teams", (req, res) => {
 app.get("/api/teams", async (req, res) => {
   try {
     const username = process.env.FTC_USERNAME || "hayeater01";
-    const token = process.env.FTC_AUTH_TOKEN || "A4211B58-D36A-4115-AAE4-04025DC4FC4C";
+    const token = process.env.FTC_TOKEN || process.env.FTC_AUTH_TOKEN || "A4211B58-D36A-4115-AAE4-04025DC4FC4C";
     const season = req.query.season || "2025";
-    const eventCode = req.query.eventCode || "USCANOSMS1";
+    const eventCode = req.query.ntCode || req.query.eventCode || "USCANOSMS1";
 
     const credentials = Buffer.from(`${username}:${token}`).toString("base64");
     

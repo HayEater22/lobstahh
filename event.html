@@ -80,7 +80,6 @@
     <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-black px-4 pt-2 pb-4 space-y-3 font-display">
       <a href="/event" class="block text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">EVENT INFO</a>
       <a href="/schedule" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">SCHEDULE</a>
-      <a href="/judging" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">JUDGING</a>
       <a href="/teams" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">TEAMS LIST</a>
       <a href="/past-seasons" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">PAST SEASONS</a>
       <a href="https://www.signupgenius.com/go/10C0549A8AE2AA1F4CF8-63762259-lobster#/" target="_blank" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">VOLUNTEER ↗</a>
@@ -117,10 +116,6 @@
         <nav class="flex flex-col space-y-5 font-display text-xs font-bold tracking-widest">
           <a href="/schedule" id="side-link-schedule" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
             <span>Schedule</span>
-            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
-          </a>
-          <a href="/judging" id="side-link-judging" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
-            <span>Judging</span>
             <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
           </a>
           <a href="/teams" id="side-link-teams" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
@@ -169,12 +164,12 @@
         
         <!-- Section 1: Venue & Logistics -->
         <section id="venue-section" class="bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-lg backdrop-blur-sm shadow-xl space-y-6">
-          <div class="flex items-start gap-4">
-            <div>
-              <h2 class="text-xl font-display font-bold text-zinc-100">Official Tournament Venue</h2>
-              <p class="text-xs font-mono text-zinc-500 font-semibold mt-1">San Mateo Event Center (Fiesta Hall)</p>
-              <p class="text-sm text-zinc-400 mt-2 font-light">1346 Saratoga Dr, San Mateo, CA 94403</p>
-            </div>
+          <div class="border-b border-zinc-800 pb-4 mb-4">
+            <h2 class="text-xl font-display font-bold text-zinc-100">Tournament Venue</h2>
+          </div>
+          <div>
+            <p class="text-sm font-mono text-zinc-500 font-semibold">San Mateo Event Center (Fiesta Hall)</p>
+            <p class="text-sm text-zinc-400 mt-2 font-light">1346 Saratoga Dr, San Mateo, CA 94403</p>
           </div>
 
           <!-- Google Map Embed -->
@@ -192,15 +187,19 @@
           <ul class="space-y-4 text-sm text-zinc-400 font-sans font-light">
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-mono font-bold select-none">•</span>
-              <span>smthn about like pay for parking or whatever</span>
+              <span>Attendees can park in the official San Mateo Event Center parking lots.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-mono font-bold select-none">•</span>
-              <span>smthn about like pay for parking or whatever</span>
+              <span>Parking is $20 per car (subject to event center terms).</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-mono font-bold select-none">•</span>
-              <span>smthn about like pay for parking or whatever</span>
+              <span>Please note that re-entry is not permitted. Once you exit the lot, you will be charged again to re-enter.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 font-mono font-bold select-none">•</span>
+              <span>We strongly recommend carpooling with other team members or friends to save on costs and secure parking spots!</span>
             </li>
           </ul>
         </section>
@@ -224,9 +223,9 @@
               </div>
 
               <div class="space-y-2">
-                <h3 class="text-sm font-bold text-zinc-200 uppercase tracking-wider font-mono">idk what to put here</h3>
+                <h3 class="text-sm font-bold text-zinc-200 uppercase tracking-wider font-mono">PAYMENT</h3>
                 <p class="leading-relaxed text-xs">
-                  idk what to put here
+                  The registration fee is $300 USD and the payment can be made via Stripe.
                 </p>
               </div>
 
@@ -236,7 +235,7 @@
 
           <div class="mt-8">
             <a id="btn-register-now" href="https://buy.stripe.com/bJe6oIcUn3mtdQa6KH1oI00" target="_blank" class="w-full flex items-center justify-center px-5 py-3.5 bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white font-extrabold tracking-widest uppercase transition-all rounded-sm shadow-[0_0_20px_rgba(239,68,68,0.25)] text-center text-xs">
-              REGISTER NOW ↗
+              REGISTER VIA STRIPE ↗
             </a>
           </div>
         </section>
@@ -244,8 +243,8 @@
         <!-- Section 4: Cash Prizes -->
         <section id="cash-prizes-section" class="bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-lg backdrop-blur-sm shadow-xl space-y-6">
           <div>
-            <h2 class="text-lg font-display font-bold text-zinc-100 border-b border-zinc-855 pb-4 mb-5 uppercase tracking-wider flex items-center gap-2">
-              🏆 Event Cash Prizes
+            <h2 class="text-lg font-display font-bold text-zinc-100 border-b border-zinc-800 pb-4 mb-5">
+              Event Cash Prizes
             </h2>
             
             <div class="space-y-4 font-sans">
@@ -271,11 +270,34 @@
               <div class="flex items-center justify-between p-4 bg-zinc-950/20 border border-zinc-950 rounded">
                 <div>
                   <h4 class="font-bold text-sm text-zinc-300">Third Place Playoff</h4>
-                  <p class="text-[11px] text-zinc-500 mt-1">Losing semifinalists compete to split this prize</p>
+                  <p class="text-[11px] text-zinc-550 mt-1">Losing semifinalists compete to split this prize</p>
                 </div>
                 <span class="font-display font-black text-xl text-zinc-400">$200</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Judging Info -->
+        <section id="judging-info-section" class="bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-lg backdrop-blur-sm shadow-xl space-y-6">
+          <div>
+            <h2 class="text-lg font-display font-bold text-zinc-100 border-b border-zinc-800 pb-4 mb-5">
+              Judging Information
+            </h2>
+            <ul class="space-y-4 text-sm text-zinc-400 font-sans font-light leading-relaxed">
+              <li class="flex items-start gap-3">
+                <span class="text-red-500 font-mono font-bold select-none">•</span>
+                <span>Lobster Cup will have standard judging for all awards.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-500 font-mono font-bold select-none">•</span>
+                <span>It will be conducted in person in the morning at the San Mateo Event Center on Saturday, August 8th.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-500 font-mono font-bold select-none">•</span>
+                <span>Teams will receive more information regarding their scheduled judging times.</span>
+              </li>
+            </ul>
           </div>
         </section>
 

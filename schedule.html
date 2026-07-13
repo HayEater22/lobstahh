@@ -80,7 +80,6 @@
     <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-black px-4 pt-2 pb-4 space-y-3 font-display">
       <a href="/event" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">EVENT INFO</a>
       <a href="/schedule" class="block text-zinc-100 py-2 border-b border-zinc-900 text-xs font-bold tracking-widest uppercase">SCHEDULE</a>
-      <a href="/judging" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">JUDGING</a>
       <a href="/teams" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">TEAMS LIST</a>
       <a href="/past-seasons" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">PAST SEASONS</a>
       <a href="https://www.signupgenius.com/go/10C0549A8AE2AA1F4CF8-63762259-lobster#/" target="_blank" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">VOLUNTEER ↗</a>
@@ -118,10 +117,6 @@
           <a href="/schedule" id="side-link-schedule" class="group flex items-center justify-between text-zinc-100 border-l-2 border-red-500 pl-3 py-2 uppercase transition-all">
             <span>Schedule</span>
             <span class="text-[10px] text-red-500">ACTIVE</span>
-          </a>
-          <a href="/judging" id="side-link-judging" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
-            <span>Judging</span>
-            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
           </a>
           <a href="/teams" id="side-link-teams" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
             <span>Teams List</span>
@@ -173,15 +168,261 @@
 
     <!-- Day 1 Schedule Grid (Active Initially) -->
     <div id="schedule-grid-day1" class="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-xl mb-12 backdrop-blur-sm">
-      <div class="p-12 text-center py-24 flex flex-col items-center justify-center">
-        <span class="font-display font-black text-2xl text-zinc-350 tracking-wider text-red-500">COMING SOON</span>
+      <div class="border-b border-zinc-800 bg-zinc-950/40 px-6 py-6 sm:px-8">
+        <h2 class="text-base sm:text-lg font-bold tracking-wider font-mono text-zinc-300 uppercase">DAY 1 AGENDA — AUGUST 8TH</h2>
+      </div>
+
+      <div class="divide-y divide-zinc-800/80">
+        <!-- 8:45 AM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">8:45 AM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Judging begins</span>
+          </div>
+        </div>
+
+        <!-- 11:00 AM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">11:00 AM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Inspection begins & pits open (setup done)</span>
+          </div>
+        </div>
+
+        <!-- 12:00 PM (Judging ends) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">12:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Judging ends</span>
+          </div>
+        </div>
+
+        <!-- 12:00 PM (Lunch Start) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">12:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Lunch Start</span>
+          </div>
+        </div>
+
+        <!-- 1:00 PM (Lunch End) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Lunch End</span>
+          </div>
+        </div>
+
+        <!-- 1:00 PM (Driver's Meeting) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Driver's Meeting</span>
+          </div>
+        </div>
+
+        <!-- 1:20 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:20 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Match Schedules Release</span>
+          </div>
+        </div>
+
+        <!-- 1:30 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:30 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Opening Ceremony</span>
+          </div>
+        </div>
+
+        <!-- 2:00 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">2:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-100">Qualification Matches Begin</span>
+          </div>
+        </div>
+
+        <!-- 5:30 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">5:30 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Qualification Matches Finish</span>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Day 2 Schedule Grid (Hidden Initially) -->
     <div id="schedule-grid-day2" class="hidden bg-zinc-900 border border-zinc-850 rounded-lg overflow-hidden shadow-xl mb-12 backdrop-blur-sm">
-      <div class="p-12 text-center py-24 flex flex-col items-center justify-center">
-        <span class="font-display font-black text-2xl text-zinc-350 tracking-wider text-red-500">COMING SOON</span>
+      <div class="border-b border-zinc-800 bg-zinc-950/40 px-6 py-6 sm:px-8">
+        <h2 class="text-base sm:text-lg font-bold tracking-wider font-mono text-zinc-300 uppercase">DAY 2 AGENDA — AUGUST 9TH</h2>
+      </div>
+
+      <div class="divide-y divide-zinc-800/80">
+        <!-- 8:00 AM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">8:00 AM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Pits open for setup</span>
+          </div>
+        </div>
+
+
+
+        <!-- 9:30 AM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">9:30 AM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Qualification Matches Continue</span>
+          </div>
+        </div>
+
+        <!-- 10:00 AM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">10:00 AM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Pits Open</span>
+          </div>
+        </div>
+
+        <!-- 12:00 PM (Quals) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">12:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Qualification Matches Finish</span>
+          </div>
+        </div>
+
+        <!-- 12:00 PM (Lunch Start) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">12:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Lunch Start</span>
+          </div>
+        </div>
+
+        <!-- 1:00 PM (Lunch End) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Lunch End</span>
+          </div>
+        </div>
+
+        <!-- 1:00 PM (Alliance) -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Alliance Selection</span>
+          </div>
+        </div>
+
+        <!-- 1:30 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:30 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">First Playoffs Setup</span>
+          </div>
+        </div>
+
+        <!-- 1:45 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">1:45 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Division Playoffs Start</span>
+          </div>
+        </div>
+
+        <!-- 3:00 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">3:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Division Playoffs End</span>
+          </div>
+        </div>
+
+        <!-- 3:15 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">3:15 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Lobster Cup Playoffs Start</span>
+          </div>
+        </div>
+
+        <!-- 4:00 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">4:00 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Lobster Cup Playoffs End</span>
+          </div>
+        </div>
+
+        <!-- 4:30 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">4:30 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-100">Closing Ceremony & Awards Ceremony</span>
+          </div>
+        </div>
+
+        <!-- 5:30 PM -->
+        <div class="flex items-center px-6 py-4 hover:bg-zinc-850/30 transition-colors group">
+          <div class="w-24 sm:w-32 flex-shrink-0 flex items-center">
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-400">5:30 PM</span>
+          </div>
+          <div class="flex-grow pl-4 border-l border-zinc-800">
+            <span class="text-xs sm:text-sm font-bold text-zinc-200">Clean up</span>
+          </div>
+        </div>
       </div>
     </div>
 

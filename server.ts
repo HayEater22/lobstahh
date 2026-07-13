@@ -361,10 +361,6 @@ app.get("/past-seasons", (req, res) => {
   res.sendFile(path.join(process.cwd(), "past-seasons.html"));
 });
 
-app.get("/judging", (req, res) => {
-  res.sendFile(path.join(process.cwd(), "judging.html"));
-});
-
 app.get("/teams", (req, res) => {
   res.sendFile(path.join(process.cwd(), "teams.html"));
 });

@@ -38,6 +38,19 @@
         radial-gradient(rgba(39, 39, 42, 0.25) 1px, transparent 1px);
       background-size: 100% 100%, 32px 32px;
     }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(24, 24, 27, 0.5);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(63, 63, 70, 0.8);
+      border-radius: 2px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(239, 68, 68, 0.8);
+    }
   </style>
 </head>
 <body class="bg-black text-zinc-400 font-sans antialiased min-h-screen flex flex-col tech-bg select-none">
@@ -77,7 +90,6 @@
     <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-black px-4 pt-2 pb-4 space-y-3 font-display">
       <a href="/event" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">EVENT INFO</a>
       <a href="/schedule" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">SCHEDULE</a>
-      <a href="/judging" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase font-semibold">JUDGING</a>
       <a href="/teams" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">TEAMS LIST</a>
       <a href="/past-seasons" class="block text-red-500 hover:text-red-400 py-2 border-b border-zinc-900 text-xs font-bold tracking-widest uppercase">PAST SEASONS</a>
       <a href="https://www.signupgenius.com/go/10C0549A8AE2AA1F4CF8-63762259-lobster#/" target="_blank" class="block text-zinc-500 hover:text-zinc-100 py-2 border-b border-zinc-900 text-xs font-semibold tracking-widest uppercase">VOLUNTEER ↗</a>
@@ -114,10 +126,6 @@
         <nav class="flex flex-col space-y-5 font-display text-xs font-bold tracking-widest">
           <a href="/schedule" id="side-link-schedule" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
             <span>Schedule</span>
-            <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
-          </a>
-          <a href="/judging" id="side-link-judging" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
-            <span>Judging</span>
             <span class="text-[10px] text-zinc-655 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200">→</span>
           </a>
           <a href="/teams" id="side-link-teams" class="group flex items-center justify-between text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-900/60 uppercase transition-colors">
@@ -166,13 +174,141 @@
       <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-2">
         <div class="lg:col-span-5 flex flex-col justify-center space-y-6">
           <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-zinc-100 uppercase tracking-tight font-display">INTO THE DEEP</h2>
-            <p class="font-display text-lg font-bold text-zinc-300 tracking-tight leading-relaxed">
-              The quick brown fox jumps over the lazy dog.
-            </p>
-            <p class="text-sm text-zinc-400 leading-relaxed font-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <div>
+              <h2 class="text-2xl md:text-3xl font-black text-zinc-100 uppercase tracking-tight font-display">INTO THE DEEP</h2>
+              <p class="text-lg md:text-xl font-bold text-zinc-100 font-display mt-1">Total Teams: 32</p>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="space-y-3 font-sans text-sm text-zinc-300 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar">
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">20936 - Royal Engineers</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award 2nd Place</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">23292 - SuperPowered Jalapenos</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award 3rd Place</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">15385 - MidKnight Mayhem</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - Captain</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">21227 - Legend</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - 1st Team Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19859 - Reflection</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - Captain</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">16158 - VC Silver Circuits</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - 1st Team Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">22406 - Future Brightness</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Think Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">22406 - Future Brightness</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Connect Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">23292 - SuperPowered Jalapenos</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Innovate Award sponsored by RTX</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19859 - Reflection</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Control Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">23224 - Cheesy Bytes</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Motivate Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">9614 - Hyperion</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Design Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">14525 - TerraBats</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Judges' Choice Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">25131 - Scarlet Serpents</span>
+                </div>
+              </div>
+
+              <!-- Accordion Dropdowns for Divisions -->
+              <div class="space-y-3 mt-4">
+                <!-- Crustacean Division Dropdown -->
+                <details class="group border border-zinc-800 rounded-lg bg-zinc-950/40 overflow-hidden transition-all duration-300">
+                  <summary class="flex items-center justify-between p-3 text-xs font-bold font-mono tracking-wider text-zinc-300 cursor-pointer hover:bg-zinc-900/40 select-none list-none [&::-webkit-details-marker]:hidden uppercase">
+                    <div class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                      <span>Crustacean Division Winners</span>
+                    </div>
+                    <span class="transition-transform duration-300 group-open:rotate-180">
+                      <svg class="w-4 h-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="p-4 border-t border-zinc-900 bg-zinc-950/60 space-y-3 font-sans text-sm text-zinc-300">
+                    <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                      <span class="font-semibold text-zinc-100">Winning Alliance - Captain</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">21227 - Legend</span>
+                    </div>
+                    <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                      <span class="font-semibold text-zinc-100">Winning Alliance - 1st Selected</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">19859 - Reflection</span>
+                    </div>
+                    <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                      <span class="font-semibold text-zinc-100">Finalist Alliance - Captain</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">19896 - Measure Once Cut Twice</span>
+                    </div>
+                    <div class="flex items-start justify-between pb-1">
+                      <span class="font-semibold text-zinc-100">Finalist Alliance - 1st Selected</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">20936 - Royal Engineers</span>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- Arthropod Division Dropdown -->
+                <details class="group border border-zinc-800 rounded-lg bg-zinc-950/40 overflow-hidden transition-all duration-300">
+                  <summary class="flex items-center justify-between p-3 text-xs font-bold font-mono tracking-wider text-zinc-300 cursor-pointer hover:bg-zinc-900/40 select-none list-none [&::-webkit-details-marker]:hidden uppercase">
+                    <div class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                      <span>Arthropod Division Winners</span>
+                    </div>
+                    <span class="transition-transform duration-300 group-open:rotate-180">
+                      <svg class="w-4 h-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="p-4 border-t border-zinc-900 bg-zinc-950/60 space-y-3 font-sans text-sm text-zinc-300">
+                    <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                      <span class="font-semibold text-zinc-100">Winning Alliance - Captain</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">16158 - VC Silver Circuits</span>
+                    </div>
+                    <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                      <span class="font-semibold text-zinc-100">Winning Alliance - 1st Selected</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">22406 - Future Brightness</span>
+                    </div>
+                    <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                      <span class="font-semibold text-zinc-100">Finalist Alliance - Captain</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">15385 - MidKnight Mayhem</span>
+                    </div>
+                    <div class="flex items-start justify-between pb-1">
+                      <span class="font-semibold text-zinc-100">Finalist Alliance - 1st Selected</span>
+                      <span class="text-zinc-400 font-mono text-xs text-right">23641 - Cuberobot</span>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+            </div>
           </div>
         </div>
         <div class="lg:col-span-7 relative h-72 lg:h-auto min-h-[300px] bg-zinc-950 border border-zinc-900 rounded-xl overflow-hidden group">
@@ -190,13 +326,79 @@
         </div>
         <div class="lg:col-span-5 flex flex-col justify-center space-y-6">
           <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-zinc-100 uppercase tracking-tight font-display">CENTER STAGE</h2>
-            <p class="font-display text-lg font-bold text-zinc-300 tracking-tight leading-relaxed">
-              The quick brown fox jumps over the lazy dog.
-            </p>
-            <p class="text-sm text-zinc-400 leading-relaxed font-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <div>
+              <h2 class="text-2xl md:text-3xl font-black text-zinc-100 uppercase tracking-tight font-display">CENTER STAGE</h2>
+              <p class="text-lg md:text-xl font-bold text-zinc-100 font-display mt-1">Total Teams: 24</p>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="space-y-3 font-sans text-sm text-zinc-300 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar">
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">8641 - The Masters</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award 2nd Place</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">14259 - TURBΩ V8</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award 3rd Place</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19862 - Mecha Mantises</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - Captain</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19063 - UnderConstruction</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - 1st Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">9614 - Hyperion</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - 2nd Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">23641 - Cuberobot</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - Captain</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19862 - Mecha Mantises</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - 1st Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">8641 - The Masters</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - 2nd Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19600 - Treeman 树人</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Think Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">14259 - TURBΩ V8</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Connect Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">23460 - Cyber Sparks</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Innovate Award sponsored by RTX</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">9614 - Hyperion</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Control Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">19600 - Treeman 树人</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Motivate Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">23346 - Kalipso Robotics</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Design Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">24637 - Black Phantoms</span>
+                </div>
+                <div class="flex items-start justify-between pb-2">
+                  <span class="font-semibold text-zinc-100">Volunteer Award</span>
+                  <span class="text-zinc-400 font-mono text-xs text-right">9784 - Max Dweese</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -207,13 +409,66 @@
       <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-2 pb-8">
         <div class="lg:col-span-5 flex flex-col justify-center space-y-6">
           <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-zinc-100 uppercase tracking-tight font-display">POWER PLAY</h2>
-            <p class="font-display text-lg font-bold text-zinc-300 tracking-tight leading-relaxed">
-              The quick brown fox jumps over the lazy dog.
-            </p>
-            <p class="text-sm text-zinc-400 leading-relaxed font-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <div>
+              <h2 class="text-2xl md:text-3xl font-black text-zinc-100 uppercase tracking-tight font-display">POWER PLAY</h2>
+              <p class="text-lg md:text-xl font-bold text-zinc-100 font-display mt-1">Total Teams: 11</p>
+            </div>
+            <div class="space-y-4">
+              <div class="space-y-3 font-sans text-sm text-zinc-300">
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award</span>
+                  <span class="text-zinc-400 font-mono text-xs">14525 - TerraBats</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Inspire Award 2nd Place</span>
+                  <span class="text-zinc-400 font-mono text-xs">12635 - Kuriosity Robotics</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - Captain</span>
+                  <span class="text-zinc-400 font-mono text-xs">14525 - TerraBats</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - 1st Team Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs">14259 - TURBΩ V8</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Winning Alliance - 2nd Team Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs">22446 - TerraBlaze</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - Captain</span>
+                  <span class="text-zinc-400 font-mono text-xs">12635 - Kuriosity Robotics</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - 1st Team Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs">9784 - Dry Ice</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Finalist Alliance - 2nd Team Selected</span>
+                  <span class="text-zinc-400 font-mono text-xs">11311 - Paragon</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Innovate Award</span>
+                  <span class="text-zinc-400 font-mono text-xs">19600 - Treeman 树人</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Control Award</span>
+                  <span class="text-zinc-400 font-mono text-xs">19859 - Factorization</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Design Award</span>
+                  <span class="text-zinc-400 font-mono text-xs">11311 - Paragon</span>
+                </div>
+                <div class="flex items-start justify-between border-b border-zinc-900 pb-2">
+                  <span class="font-semibold text-zinc-100">Judges' Choice Award</span>
+                  <span class="text-zinc-400 font-mono text-xs">14259 - TURBΩ V8</span>
+                </div>
+                <div class="flex items-start justify-between pb-2">
+                  <span class="font-semibold text-zinc-100">Judges' Choice Award</span>
+                  <span class="text-zinc-400 font-mono text-xs">14525 - TerraBats</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="lg:col-span-7 relative h-72 lg:h-auto min-h-[300px] bg-zinc-950 border border-zinc-900 rounded-xl overflow-hidden group">
